@@ -1,6 +1,6 @@
 var gcloud = require('gcloud');
-var crypto = require( 'crypto' );
-var fs = require('fs')
+var crypto = require('crypto');
+var fs = require('fs');
 
 function getFilename(req, file, cb) {
   crypto.pseudoRandomBytes(16, function (err, raw) {
@@ -68,11 +68,11 @@ GCStorage.prototype._handleFile = function(req, file, cb) {
       }).on('finish', function(file) {
         return cb(null, {
           filename,
-          path: `https://${self.options.bucket}.storage.googleapis.com/${filename}`,
+          path: `https://storage.googleapis.com/${self.options.bucket}/${filename}`,
         });
       });
     });
-	});
+  });
 }
 
 GCStorage.prototype._removeFile = function(req, file, cb) {
