@@ -15,7 +15,7 @@ var multer = require('multer');
 var gcs = require('multer-gcs');
 var storage = gcs({
   filename: function(req, file, cb) {
-    cb( null, file.fieldname + '-' + Date.now() );
+    cb(null, file.fieldname + '-' + Date.now());
   },
   bucket: 'bucket-name', // Required : bucket name to upload
   projectId: 'dummy-project', // Required : Google project ID
